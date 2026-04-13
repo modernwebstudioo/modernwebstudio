@@ -116,10 +116,10 @@ export default function Hero() {
           className="mt-12 md:mt-16 flex items-center justify-center gap-4 flex-col sm:flex-row select-none"
         >
           <div className="flex -space-x-3">
-             <img className="w-10 h-10 md:w-12 md:h-12 rounded-full border-[3px] border-[#FAFAFA] shadow-sm object-cover relative z-40" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Client 1" />
-             <img className="w-10 h-10 md:w-12 md:h-12 rounded-full border-[3px] border-[#FAFAFA] shadow-sm object-cover relative z-30" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80" alt="Client 2" />
-             <img className="w-10 h-10 md:w-12 md:h-12 rounded-full border-[3px] border-[#FAFAFA] shadow-sm object-cover relative z-20" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Client 3" />
-             <img className="w-10 h-10 md:w-12 md:h-12 rounded-full border-[3px] border-[#FAFAFA] shadow-sm object-cover relative z-10" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Client 4" />
+             <Image className="w-10 h-10 md:w-12 md:h-12 rounded-full border-[3px] border-[#FAFAFA] shadow-sm object-cover relative z-40" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Client 1" width={48} height={48} />
+             <Image className="w-10 h-10 md:w-12 md:h-12 rounded-full border-[3px] border-[#FAFAFA] shadow-sm object-cover relative z-30" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80" alt="Client 2" width={48} height={48} />
+             <Image className="w-10 h-10 md:w-12 md:h-12 rounded-full border-[3px] border-[#FAFAFA] shadow-sm object-cover relative z-20" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Client 3" width={48} height={48} />
+             <Image className="w-10 h-10 md:w-12 md:h-12 rounded-full border-[3px] border-[#FAFAFA] shadow-sm object-cover relative z-10" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Client 4" width={48} height={48} />
              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-[3px] border-[#FAFAFA] bg-white flex items-center justify-center text-xs font-bold text-gray-800 shadow-[0_4px_10px_rgba(0,0,0,0.05)] z-0 relative">
                +50
              </div>

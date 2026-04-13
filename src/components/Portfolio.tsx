@@ -5,6 +5,14 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useRef } from "react";
 
+interface Project {
+  id: string;
+  title: string;
+  category: string;
+  result: string;
+  image: string;
+}
+
 const projects = [
   {
     id: "01",
@@ -56,7 +64,7 @@ const BrowserBar = () => (
   </div>
 );
 
-const ProjectCard = ({ project, index }: { project: any; index: number }) => {
+const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
   const isEven = index % 2 === 0;
   const cardRef = useRef<HTMLDivElement>(null);
   
