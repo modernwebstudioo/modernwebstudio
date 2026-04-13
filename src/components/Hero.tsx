@@ -150,23 +150,29 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 3.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <motion.div 
-            className="flex gap-4 sm:gap-6 md:gap-12 w-max cursor-grab active:cursor-grabbing hover:[animation-play-state:paused]"
-            drag="x"
-            dragConstraints={carouselRef}
-            dragElastic={0.15}
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ ease: "linear", duration: 50, repeat: Infinity, delay: 5.0 }}
-            whileTap={{ cursor: "grabbing" }}
+          <style>{`
+            @keyframes marquee {
+              0% { transform: translateX(0%); }
+              100% { transform: translateX(-50%); }
+            }
+            .animate-marquee {
+              animation: marquee 40s linear infinite;
+            }
+            .animate-marquee:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
+          <div 
+            className="flex gap-4 sm:gap-6 md:gap-12 w-max animate-marquee"
           >
-          {[...portfolioCards, ...portfolioCards].map((card, index) => (
+          {[...portfolioCards, ...portfolioCards, ...portfolioCards, ...portfolioCards].map((card, index) => (
             <div key={index} className="flex items-center justify-center py-6 md:py-10">
               <motion.div
-                animate={{ y: [0, index % 2 === 0 ? -15 : 15, 0] }}
-                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
-                whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+                animate={{ y: [0, index % 2 === 0 ? -25 : 25, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: (index % 5) * 0.4 }}
+                whileHover={{ scale: 1.03, y: 0, transition: { duration: 0.3 } }}
                 style={{ willChange: "transform" }}
-                className="w-[240px] sm:w-[400px] md:w-[600px] lg:w-[680px] shrink-0 aspect-[16/10.5] sm:aspect-[16/10] rounded-[1.5rem] sm:rounded-3xl md:rounded-[2.5rem] overflow-hidden bg-white/80 border border-gray-200/60 shadow-[0_8px_30px_rgba(0,0,0,0.04)] md:shadow-[0_24px_60px_rgba(0,0,0,0.06)] flex flex-col p-1.5 sm:p-2 md:p-3 relative group cursor-grab active:cursor-grabbing"
+                className="w-[240px] sm:w-[400px] md:w-[600px] lg:w-[680px] shrink-0 aspect-[16/10.5] sm:aspect-[16/10] rounded-[1.5rem] sm:rounded-3xl md:rounded-[2.5rem] overflow-hidden bg-white/80 border border-gray-200/60 shadow-[0_8px_30px_rgba(0,0,0,0.04)] md:shadow-[0_24px_60px_rgba(0,0,0,0.06)] flex flex-col p-1.5 sm:p-2 md:p-3 relative group"
               >
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[2.5rem] pointer-events-none"></div>
                 <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white w-full pointer-events-none rounded-t-[2.5rem]"></div>
@@ -192,7 +198,7 @@ export default function Hero() {
               </motion.div>
             </div>
           ))}
-          </motion.div>
+          </div>
         </motion.div>
       </div>
 
