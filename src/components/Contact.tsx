@@ -15,10 +15,13 @@ export default function Contact() {
     const data = new FormData(form);
 
     try {
-      const res = await fetch("/", {
+      const res = await fetch("https://formsubmit.co/ajax/modernwebstudioo@gmail.com", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json" 
+        },
+        body: JSON.stringify(Object.fromEntries(data)),
       });
 
       if (res.ok) {
@@ -119,7 +122,7 @@ export default function Contact() {
                     We&apos;ve received your request and will get back to you within 24 hours.
                   </p>
                   <button
-                    onClick={() => setStatus("idle")}
+                     onClick={() => setStatus("idle")}
                     className="mt-2 text-sm text-blue-400 hover:text-blue-300 transition-colors"
                   >
                     Send another message
@@ -127,18 +130,11 @@ export default function Contact() {
                 </motion.div>
               ) : (
                 <form
-                  name="contact"
-                  method="POST"
-                  data-netlify="true"
-                  netlify-honeypot="bot-field"
                   className="space-y-5 sm:space-y-6 relative z-10"
                   onSubmit={handleSubmit}
                 >
-                  {/* Required hidden inputs for Netlify Forms */}
-                  <input type="hidden" name="form-name" value="contact" />
-                  <p className="hidden">
-                    <label>Don&apos;t fill this out: <input name="bot-field" /></label>
-                  </p>
+                  <input type="hidden" name="_subject" value="New Project Request!" />
+                  <input type="hidden" name="_captcha" value="false" />
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2.5">
