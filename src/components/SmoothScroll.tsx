@@ -6,11 +6,10 @@ import Lenis from '@studio-freight/lenis';
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const lenis = new Lenis({
-      lerp: 0.08,
+      lerp: 0.1, // slightly faster to remove lag feeling
       wheelMultiplier: 1,
       smoothWheel: true,
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
+      syncTouch: true, // This enables smooth touch on mobile
       touchMultiplier: 2,
     });
 

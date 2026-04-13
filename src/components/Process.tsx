@@ -42,8 +42,8 @@ export default function Process() {
       {/* Background subtleties */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-        <div className="absolute top-[30%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-500/5 blur-[120px]"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[30%] h-[50%] rounded-full bg-indigo-500/5 blur-[120px]"></div>
+        <div className="hidden md:block absolute top-[30%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-500/5 blur-[120px]"></div>
+        <div className="hidden md:block absolute bottom-[-10%] right-[-10%] w-[30%] h-[50%] rounded-full bg-indigo-500/5 blur-[120px]"></div>
       </div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
