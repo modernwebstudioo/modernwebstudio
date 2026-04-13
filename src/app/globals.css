@@ -39,13 +39,34 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+  background-color: var(--background);
+  /* Prevents white bounce/flash on fast scroll (macOS trackpad & mobile) */
+  overscroll-behavior: none;
+}
+
 html, body {
   overflow-x: hidden;
   background-color: var(--background);
   color: var(--foreground);
+  overscroll-behavior-y: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Ensure sections always have a filled background — no transparent gap glitches */
+section {
+  background-color: var(--background);
+  position: relative;
 }
 
 ::selection {
   background-color: var(--accent);
   color: #ffffff;
+}
+
+/* Prevent font/layout paint flicker during scroll animations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
