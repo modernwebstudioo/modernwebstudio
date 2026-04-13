@@ -151,11 +151,12 @@ export default function Hero() {
           transition={{ duration: 1.2, delay: 3.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.div 
-            className="flex gap-4 sm:gap-6 md:gap-12 w-max cursor-grab active:cursor-grabbing"
+            className="flex gap-4 sm:gap-6 md:gap-12 w-max cursor-grab active:cursor-grabbing hover:[animation-play-state:paused]"
             drag="x"
             dragConstraints={carouselRef}
             dragElastic={0.15}
-            initial={{ x: 0 }}
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ ease: "linear", duration: 50, repeat: Infinity, delay: 5.0 }}
             whileTap={{ cursor: "grabbing" }}
           >
           {[...portfolioCards, ...portfolioCards].map((card, index) => (
