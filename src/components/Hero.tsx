@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 
 const BrowserBar = () => (
   <div className="w-full h-8 md:h-12 bg-[#0A0A0A] border-b border-white/5 flex items-center px-4 md:px-5 gap-2 shrink-0 z-20 relative shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
@@ -27,6 +28,8 @@ const portfolioCards = [
 ];
 
 export default function Hero() {
+  const carouselRef = useRef<HTMLDivElement>(null);
+
   return (
     <section 
       className="relative min-h-[100vh] lg:min-h-[140vh] flex flex-col items-center pt-24 sm:pt-32 md:pt-40 overflow-hidden bg-[#FAFAFA]"
@@ -136,7 +139,7 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      <div className="relative w-full mt-10 sm:mt-16 md:mt-24 pb-8 md:pb-24 overflow-hidden flex items-center min-h-[250px] sm:min-h-[400px] md:min-h-[550px]">
+      <div className="relative w-full mt-10 sm:mt-16 md:mt-24 pb-8 md:pb-24 overflow-hidden flex items-center min-h-[250px] sm:min-h-[400px] md:min-h-[550px]" ref={carouselRef}>
         
         <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-24 md:w-64 bg-gradient-to-r from-[#FAFAFA] to-transparent z-30 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-24 md:w-64 bg-gradient-to-l from-[#FAFAFA] to-transparent z-30 pointer-events-none" />
@@ -148,10 +151,12 @@ export default function Hero() {
           transition={{ duration: 1.2, delay: 3.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.div 
-            className="flex gap-4 sm:gap-6 md:gap-12 w-max"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ ease: "linear", duration: 50, repeat: Infinity, delay: 5.0 }}
-            style={{ willChange: "transform" }}
+            className="flex gap-4 sm:gap-6 md:gap-12 w-max cursor-grab active:cursor-grabbing"
+            drag="x"
+            dragConstraints={carouselRef}
+            dragElastic={0.15}
+            initial={{ x: 0 }}
+            whileTap={{ cursor: "grabbing" }}
           >
           {[...portfolioCards, ...portfolioCards].map((card, index) => (
             <div key={index} className="flex items-center justify-center py-6 md:py-10">
