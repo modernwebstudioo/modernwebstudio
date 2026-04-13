@@ -1,0 +1,29 @@
+<!-- 
+  Netlify Forms detection file.
+  This static HTML form must mirror the React form so Netlify's build bot
+  can detect and register the form during build time.
+-->
+<!DOCTYPE html>
+<html>
+<head><title>Contact Form</title></head>
+<body>
+  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="contact" />
+    <input name="bot-field" />
+    <input name="name" type="text" />
+    <input name="email" type="email" />
+    <select name="project_type">
+      <option>Business Website</option>
+      <option>E-commerce Store</option>
+      <option>Web Application</option>
+    </select>
+    <select name="budget">
+      <option>$5k - $10k</option>
+      <option>$10k - $25k</option>
+      <option>$25k+</option>
+    </select>
+    <textarea name="message"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

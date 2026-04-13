@@ -69,4 +69,13 @@ section {
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Disable text selection site-wide */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Re-enable selection only for form inputs so users can type/paste */
+input, textarea, select {
+  user-select: text;
+  -webkit-user-select: text;
 }
